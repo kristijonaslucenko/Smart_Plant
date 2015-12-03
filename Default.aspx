@@ -6,7 +6,8 @@
         <div class="content-wrapper">
             <hgroup class="title">
                 <h1><%: Title %>.</h1>
-                <h2>See how your plant is doing</h2>
+                <h2>See how your plant is doing<br /></h2>
+                <div align="right"><h2><a href="FeedCharting.aspx"><asp:Label ID="Label4" runat="server" Font-Names="Consolas" Font-Size="X-Large" ForeColor="White" BorderStyle="None" Font-Underline="False"># Analyze</asp:Label></a></h2></div>
             </hgroup>
            
         </div>

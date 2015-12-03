@@ -9,9 +9,6 @@ using System.Web.UI.WebControls;
 using System.Net;
 using System.Web.UI.DataVisualization.Charting;
 
-/// <summary>
-/// Summary description for Class1
-/// </summary>
 public partial class ThingsSpeakFeedReader : Page
 {
     public int channelID;
@@ -22,7 +19,7 @@ public partial class ThingsSpeakFeedReader : Page
     bool extentedUrl = false;
     public int feedCount;
 
-    public string[] dates, ids, temp, air, soil, light;
+    public string[] dates, ids, temp, air, soil, light, co2_1, co2_2, out_temp;
 
     public ThingsSpeakFeedReader(int channel, int results)
 	{
@@ -57,6 +54,10 @@ public partial class ThingsSpeakFeedReader : Page
         air = new string[xmlnode.Count];
         soil = new string[xmlnode.Count];
         light = new string[xmlnode.Count];
+        co2_1 = new string[xmlnode.Count];
+        co2_2 = new string[xmlnode.Count];
+        out_temp = new string[xmlnode.Count];
+
 
         for (i = 0; i <= xmlnode.Count - 1; i++)
         {
@@ -66,9 +67,11 @@ public partial class ThingsSpeakFeedReader : Page
             air[i] = xmlnode[i].ChildNodes.Item(3).InnerText.Trim();
             soil[i] = xmlnode[i].ChildNodes.Item(4).InnerText.Trim();
             light[i] = xmlnode[i].ChildNodes.Item(5).InnerText.Trim();
-            // str += xmlnode[i].ChildNodes.Item(2).InnerText.Trim();
+            co2_1[i] = xmlnode[i].ChildNodes.Item(6).InnerText.Trim();
+            co2_2[i] = xmlnode[i].ChildNodes.Item(7).InnerText.Trim();
+            out_temp[i] = xmlnode[i].ChildNodes.Item(8).InnerText.Trim();
+
         }
-        //urll = feedCount.ToString();
     }
 
     private string formHTTPrequest()
